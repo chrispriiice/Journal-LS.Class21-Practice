@@ -10,7 +10,9 @@ import UIKit
 
 class EntryTableViewCell: UITableViewCell {
     
-    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var bodyTextLabel: UILabel!
     
     var entry: Entry? {
         didSet {
@@ -19,7 +21,15 @@ class EntryTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
+        guard let entry = entry else { return }
         
+        titleLabel.text = entry.title
+        bodyTextLabel.text = entry.bodyText
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy, h:mm a"
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        timestampLabel.text = dateFormatter.string(from: entry.timestamp!)
     }
 
     override func awakeFromNib() {

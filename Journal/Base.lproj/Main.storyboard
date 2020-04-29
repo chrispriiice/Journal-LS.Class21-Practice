@@ -65,7 +65,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GeW-ra-pZf"/>
+                    <navigationItem key="navigationItem" id="GeW-ra-pZf">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ucz-Ey-FcH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="oYr-8X-CLN"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,13 +83,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rvF-T3-o54">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rvF-T3-o54" customClass="EntryTableViewCell" customModule="Journal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="51.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rvF-T3-o54" id="uV9-k7-fMK">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ha2-Nk-iy6">
+                                            <rect key="frame" x="20" y="2" width="42" height="24"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" ambiguous="YES" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOU-bu-EsD">
+                                            <rect key="frame" x="308" y="3.5" width="86" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMQ-jK-mcb">
+                                            <rect key="frame" x="20" y="28" width="40" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="DMQ-jK-mcb" secondAttribute="bottom" constant="2" id="75g-Lw-ccf"/>
+                                        <constraint firstItem="DMQ-jK-mcb" firstAttribute="top" secondItem="Ha2-Nk-iy6" secondAttribute="bottom" constant="2" id="7iB-Ex-TcD"/>
+                                        <constraint firstItem="BOU-bu-EsD" firstAttribute="centerY" secondItem="Ha2-Nk-iy6" secondAttribute="centerY" id="Dm4-5h-R6y"/>
+                                        <constraint firstItem="Ha2-Nk-iy6" firstAttribute="leading" secondItem="uV9-k7-fMK" secondAttribute="leading" constant="20" id="IbV-q7-q9z"/>
+                                        <constraint firstAttribute="trailing" secondItem="BOU-bu-EsD" secondAttribute="trailing" constant="20" id="Naf-tn-icR"/>
+                                        <constraint firstItem="DMQ-jK-mcb" firstAttribute="leading" secondItem="uV9-k7-fMK" secondAttribute="leading" constant="20" id="fxu-vy-QzZ"/>
+                                        <constraint firstItem="Ha2-Nk-iy6" firstAttribute="top" secondItem="uV9-k7-fMK" secondAttribute="top" constant="2" id="vR1-Ow-d3U"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bodyTextLabel" destination="DMQ-jK-mcb" id="ug2-5G-vEb"/>
+                                    <outlet property="timestampLabel" destination="BOU-bu-EsD" id="TlI-Wy-4u3"/>
+                                    <outlet property="titleLabel" destination="Ha2-Nk-iy6" id="Bkt-Bd-8YM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
